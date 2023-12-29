@@ -32,20 +32,61 @@ class FlutterThingspeakClient {
 
   /// Initializes the client by creating an instance of [ReadDataService].
   Future<void> initialize() async {
-    _readDataService =
-        ReadDataService(serverUrl: _serverUrl, id: channelID, fmt: fmt);
+    _readDataService = ReadDataService(
+        serverUrl: _serverUrl, id: channelID, fmt: fmt, apiKey: readApiKey);
   }
 
-  /// Gets data from the ThingSpeak channel.
+  /// Read data from all fields in channel
   ///
   /// Throws [ClientNotInitializedException] if the client has not been initialized.
   Future<dynamic> get() async {
     if (_readDataService == null) {
       throw ClientNotInitializedException(message: "Client not initialized.");
     } else {
-      // Print the fetched data and return it.
-      print(await _readDataService!.get());
-      return _readDataService!.get();
+      return await _readDataService!.get();
+    }
+  }
+
+  /// Read data from single [field] of channel
+  ///
+  /// Throws [ClientNotInitializedException] if the client has not been initialized.
+  Future<dynamic> getField(String field) async {
+    if (_readDataService == null) {
+      throw ClientNotInitializedException(message: "Client not initialized.");
+    } else {
+      return await _readDataService!.getField(field);
+    }
+  }
+
+  /// Read status field of channel
+  ///
+  /// Throws [ClientNotInitializedException] if the client has not been initialized.
+  Future<dynamic> getStatus() async {
+    if (_readDataService == null) {
+      throw ClientNotInitializedException(message: "Client not initialized.");
+    } else {
+      return await _readDataService!.getStatus();
+    }
+  }
+
+  /// Read last entry in channel field
+  /// Throws [ClientNotInitializedException] if the client has not been initialized.
+  Future<dynamic> getLastDataAge(String field) async {
+    if (_readDataService == null) {
+      throw ClientNotInitializedException(message: "Client not initialized.");
+    } else {
+      return await _readDataService!.getLastDataAge(field);
+    }
+  }
+
+  /// Read last status of channel
+  ///
+  /// Throws [ClientNotInitializedException] if the client has not been initialized.
+  Future<dynamic> getLastStatusAge() async {
+    if (_readDataService == null) {
+      throw ClientNotInitializedException(message: "Client not initialized.");
+    } else {
+      return await _readDataService!.getLastStatusAge();
     }
   }
 }

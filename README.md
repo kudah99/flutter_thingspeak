@@ -1,6 +1,9 @@
 # Flutter ThingSpeak
 
-Flutter ThingSpeak is a Dart package that provides a client for interacting with ThingSpeak channels.
+Flutter ThingSpeak is a Dart package that provides a client for interacting with 
+ThingSpeak channels.Covers all functionalities of the ThingSpeak API, enabling users to update channel
+ information, fetch and analyze feeds, and query public channels.
+Compatible with both the hosted ThingSpeak server at api.thingspeak.com and self-hosted open-source servers.
 
 ## Features
 
@@ -13,7 +16,7 @@ To use this package, add `flutter_thingspeak` as a dependency in your `pubspec.y
 
 ```yaml
 dependencies:
-  flutter_thingspeak: ^1.0.0
+  flutter_thingspeak: ^1.1.0
 ```
 
 Then run:
