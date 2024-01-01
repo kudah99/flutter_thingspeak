@@ -6,67 +6,72 @@ class ReadDataService {
   String? apiKey;
   String fmt;
   String serverUrl;
+  bool isPrivate;
+  Map<String, dynamic>? options;
 
-  ReadDataService({
-    required this.serverUrl,
-    required this.id,
-    this.apiKey,
-    required this.fmt,
-  });
+  ReadDataService(
+      {required this.serverUrl,
+      required this.id,
+      this.apiKey,
+      required this.fmt,
+      this.isPrivate = false,
+      this.options});
 
-  Future<dynamic> get({Map<String, dynamic>? options}) async {
+  Future<dynamic> get() async {
     options ??= {};
     if (apiKey != null) {
-      options['api_key'] = apiKey;
+      options!['api_key'] = apiKey;
     }
     var path = 'channels/$id/feeds.$fmt';
-    Uri endpoint = Uri.https(serverUrl, path);
+    Uri endpoint = Uri.https(serverUrl, path, options);
     var response = await http.get(endpoint);
     return _fmt(response);
   }
 
-  Future<dynamic> getField(String field,
-      {Map<String, dynamic>? options}) async {
+  Future<dynamic> getField(
+    String field,
+  ) async {
     options ??= {};
     if (apiKey != null) {
-      options['api_key'] = apiKey;
+      options!['api_key'] = apiKey;
     }
     var path = 'channels/$id/fields/$field.$fmt';
-    Uri endpoint = Uri.https(serverUrl, path);
+    Uri endpoint = Uri.https(serverUrl, path, options);
     var response = await http.get(endpoint);
     return _fmt(response);
   }
 
-  Future<dynamic> getStatus({Map<String, dynamic>? options}) async {
+  Future<dynamic> getStatus() async {
     options ??= {};
     if (apiKey != null) {
-      options['api_key'] = apiKey;
+      options!['api_key'] = apiKey;
     }
     var path = 'channels/$id/status.$fmt';
-    Uri endpoint = Uri.https(serverUrl, path);
+    Uri endpoint = Uri.https(serverUrl, path, options);
     var response = await http.get(endpoint);
     return _fmt(response);
   }
 
-  Future<dynamic> getLastDataAge(String field,
-      {Map<String, dynamic>? options}) async {
+  Future<dynamic> getLastDataAge(
+    String field,
+  ) async {
     options ??= {};
     if (apiKey != null) {
-      options['api_key'] = apiKey;
+      options!['api_key'] = apiKey;
     }
     var path = 'channels/$id/fields/$field/last.$fmt';
-    Uri endpoint = Uri.https(serverUrl, path);
+    Uri endpoint = Uri.https(serverUrl, path, options);
     var response = await http.get(endpoint);
     return _fmt(response);
   }
 
-  Future<dynamic> getLastStatusAge({Map<String, dynamic>? options}) async {
+  Future<dynamic> getLastStatusAge() async {
     options ??= {};
     if (apiKey != null) {
-      options['api_key'] = apiKey;
+      options!['api_key'] = apiKey;
     }
     var path = 'channels/$id/status/last.$fmt';
-    Uri endpoint = Uri.https(serverUrl, path);
+    Uri endpoint = Uri.https(serverUrl, path, options);
     var response = await http.get(endpoint);
     return _fmt(response);
   }

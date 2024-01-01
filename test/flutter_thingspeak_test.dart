@@ -15,6 +15,28 @@ void main() {
     // You might want to customize this expectation based on your actual response
     expect(result, isNotNull);
 
+    // Test getField method after initialization
+    final fieldResult = await flutterThingspeak.getField('1');
+    // You might want to customize this expectation based on your actual response
+    expect(fieldResult, isNotNull);
+
+    // Test getStatus method after initialization
+    final statusResult = await flutterThingspeak.getStatus();
+    // You might want to customize this expectation based on your actual response
+    expect(statusResult, isNotNull);
+
+    // Test getLastDataAge method after initialization
+    final lastDataAgeResult = await flutterThingspeak.getLastDataAge('1');
+    // You might want to customize this expectation based on your actual response
+    expect(lastDataAgeResult, isNotNull);
+
+    print(lastDataAgeResult);
+
+    // Test getLastStatusAge method after initialization
+    final lastStatusAgeResult = await flutterThingspeak.getLastStatusAge();
+    // You might want to customize this expectation based on your actual response
+    expect(lastStatusAgeResult, isNotNull);
+
     // Test uninitialized client
     final uninitializedClient = FlutterThingspeakClient(channelID: '456');
     try {

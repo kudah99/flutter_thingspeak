@@ -5,11 +5,6 @@ ThingSpeak channels.Covers all functionalities of the ThingSpeak API, enabling u
  information, fetch and analyze feeds, and query public channels.
 Compatible with both the hosted ThingSpeak server at api.thingspeak.com and self-hosted open-source servers.
 
-## Features
-
-- Initialize and interact with ThingSpeak channels.
-- Read data from ThingSpeak channels.
-
 ## Getting Started
 
 To use this package, add `flutter_thingspeak` as a dependency in your `pubspec.yaml` file.
