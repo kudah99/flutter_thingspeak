@@ -79,4 +79,3 @@ For a more detailed example, check the `/example` folder in this repository.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
