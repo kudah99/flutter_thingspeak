@@ -1,3 +1,3 @@
-## 0.0.1
+## 1.1.0
 
-* TODO: Describe initial release.
+* The very first release to pub.dev. Supports channel data reading only.

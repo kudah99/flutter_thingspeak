@@ -1,5 +1,5 @@
 name: flutter_thingspeak
-description: "A new Flutter package project."
+description: "This package provides a client for interacting with ThingSpeak channels. It covers all functionalities of the ThingSpeak API, enabling users to update channel information, fetch and analyze feeds, and query public channels."
 version: 1.1.0
 homepage: https://github.com/kudah99/flutter_thingspeak
 
