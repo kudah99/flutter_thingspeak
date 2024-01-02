@@ -29,7 +29,7 @@ void main() async {
   final flutterThingspeak = FlutterThingspeakClient(channelID: '12397');
 
   // Initialize the client
-  await flutterThingspeak.initialize();
+  flutterThingspeak.initialize();
 
   // Get data from the ThingSpeak channel
   final result = await flutterThingspeak.getAllData();
@@ -69,6 +69,9 @@ String median; // Get median of this many minutes, valid values: 10, 15, 20, 30,
 ## Example
 
 For a more detailed example, check the `/example` folder in this repository.
+<p align="start">
+  <img src="example/flutter_01.png" alt="screenshot" width="200"> &nbsp; | &nbsp;
+</p>
 
 ## Additional Information
 
