@@ -70,7 +70,7 @@ String median; // Get median of this many minutes, valid values: 10, 15, 20, 30,
 
 For a more detailed example, check the `/example` folder in this repository.
 <p align="start">
-  <img src="example/flutter_01.png" alt="screenshot" width="200"> &nbsp; | &nbsp;
+  <img src="https://i.ibb.co/pnjr0zH/flutter-01.png" alt="screenshot" width="200"> &nbsp; | &nbsp;
 </p>
 
 ## Additional Information
