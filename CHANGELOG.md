@@ -2,6 +2,6 @@
 
 * The very first release to pub.dev. Supports channel data reading only.
 
-## 1.1.1
+## 1.2.1
 
 * Minor changes, changing Documentation typo

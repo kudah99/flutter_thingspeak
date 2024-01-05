@@ -8,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title});
+  const MyHomePage({super.key, required this.title});
 
   final String title;
 
@@ -42,15 +42,12 @@ class _MyHomePageState extends State<MyHomePage> {
     try {
       // Get data from the ThingSpeak channel
       final result = await flutterThingspeak.getFieldData('4');
-      print(result);
 
       channel = Channel.fromJson(result);
       feeds = (result['feeds'] as List<dynamic>)
           .map((feed) => Feed.fromJson(feed))
           .toList();
-    } catch (e) {
-      print('Error fetching data: $e');
-    }
+    } catch (e) {}
   }
 
   @override
@@ -81,27 +78,28 @@ class _MyHomePageState extends State<MyHomePage> {
                 return Column(
                   children: [
                     Container(
-                      margin: EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.black45, width: .5),
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(5)),
                       ),
                       child: ListBody(
                         children: [
                           ListTile(
-                            title: Text("Channel ID"),
+                            title: const Text("Channel ID"),
                             subtitle: Text(channel!.id.toString()),
                           ),
                           ListTile(
-                            title: Text("Channel Name"),
+                            title: const Text("Channel Name"),
                             subtitle: Text(channel!.name),
                           ),
                           ListTile(
-                            title: Text("Channel Description"),
+                            title: const Text("Channel Description"),
                             subtitle: Text(channel!.description),
                           ),
                           ListTile(
-                            title: Text("Location"),
+                            title: const Text("Location"),
                             subtitle: Text(
                                 "${channel!.latitude.toString()},${channel!.longitude}"),
                           )
@@ -109,11 +107,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     SfCartesianChart(
-                        primaryXAxis: CategoryAxis(),
+                        primaryXAxis: const CategoryAxis(),
                         // Chart title
-                        title: ChartTitle(text: 'Temperature Data Chart'),
+                        title: const ChartTitle(text: 'Temperature Data Chart'),
                         // Enable legend
-                        legend: Legend(isVisible: true),
+                        legend: const Legend(isVisible: true),
                         // Enable tooltip
                         tooltipBehavior: TooltipBehavior(enable: true),
                         series: <CartesianSeries<Feed, String>>[
@@ -125,19 +123,19 @@ class _MyHomePageState extends State<MyHomePage> {
                               name: 'Temperature',
                               // Enable data label
                               dataLabelSettings:
-                                  DataLabelSettings(isVisible: true))
+                                  const DataLabelSettings(isVisible: true))
                         ]),
                   ],
                 );
               } else {
                 // Display a message when data is not available
-                return Center(
+                return const Center(
                   child: Text('No data available.'),
                 );
               }
             } else {
               // Display a loading indicator while data is being fetched
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }

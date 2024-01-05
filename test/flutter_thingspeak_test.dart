@@ -19,7 +19,6 @@ void main() {
     final fieldResult = await flutterThingspeak.getField('1');
 
     expect(fieldResult, isNotNull);
-    print(fieldResult);
 
     // Test getStatus method after initialization
     final statusResult = await flutterThingspeak.getStatus();
